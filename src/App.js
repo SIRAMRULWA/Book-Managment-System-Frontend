@@ -8,8 +8,18 @@ function WelcomePage() {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-primary text-white">
       <div className="text-center">
-        <h1 className="display-4">Welcome to Our Library</h1>
-        <p className="lead">Explore our collection of books</p>
+        <h1 className="display-4 mb-4">Welcome to Our Library</h1>
+        <p className="lead mb-5">Explore our collection of books</p>
+        <div className="decorative-divider mb-5"></div>
+        <div className="d-flex justify-content-center align-items-center mb-4">
+          <div className="me-4">
+            <span className="fs-1">📚</span>
+          </div>
+          <div>
+            <span className="fs-1">🔍</span>
+          </div>
+        </div>
+        <p>Feel free to wander and discover!</p>
       </div>
     </div>
   );

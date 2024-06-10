@@ -1,8 +1,7 @@
-// src/apollo.js
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql', // Your GraphQL server endpoint
+  uri: 'http://localhost:8080/graphql',
 });
 
 const client = new ApolloClient({

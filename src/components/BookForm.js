@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { gql, useMutation } from '@apollo/client'; // Import gql and useMutation from Apollo Client
+import { gql, useMutation } from '@apollo/client';
 
-// Define your GraphQL mutation
 const ADD_BOOK = gql`
   mutation AddBook($title: String!, $author: String!, $description: String!) {
     addBook(title: $title, author: $author, description: $description) {
@@ -19,13 +18,10 @@ const BookForm = () => {
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState({});
 
-  // Use useMutation hook to execute the ADD_BOOK mutation
   const [addBook] = useMutation(ADD_BOOK);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validate form fields
     const errors = {};
     if (!title.trim()) {
       errors.title = 'Title is required';
@@ -38,10 +34,8 @@ const BookForm = () => {
     }
 
     if (Object.keys(errors).length === 0) {
-      // If no errors, execute the mutation
       addBook({ variables: { title, author, description } })
         .then(() => {
-          // Reset form fields
           setTitle('');
           setAuthor('');
           setDescription('');
@@ -56,8 +50,8 @@ const BookForm = () => {
   };
 
   return (
-    <div className="book-form container">
-      <h2>Add Book</h2>
+    <div className="container mt-5">
+      <h2 className="mb-4">Add Book</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title:</label>
